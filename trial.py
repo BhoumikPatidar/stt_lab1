@@ -1,35 +1,46 @@
-lst = [5, 5, 2, 4, 1, 6]
+"""
+Module for implementing the Merge Sort algorithm.
+"""
 
+def mergesort(lst):
+    """
+    Sorts a list in ascending order using the merge sort algorithm.
+    
+    Args:
+        lst (list): The list to be sorted.
+    """
+    if len(lst) > 1:
+        mid = len(lst) // 2
+        left_half = lst[:mid]
+        right_half = lst[mid:]
 
-def mergesort(l):
-  if len(l) > 1:
-    mid = len(l) // 2
-    l1 = l[:mid]
-    l2 = l[mid:]
-    mergesort(l1)
-    mergesort(l2)
+        # Recursively sort both halves
+        mergesort(left_half)
+        mergesort(right_half)
 
-    i = j = k = 0
-    while i < len(l1) and j < len(l2):
-      if l1[i] <= l2[j]:
-        l[k] = l1[i]
-        k += 1
-        i += 1
-      else:
-        l[k] = l2[j]
-        k += 1
-        j += 1
+        # Merge sorted halves
+        i = j = k = 0
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] <= right_half[j]:
+                lst[k] = left_half[i]
+                i += 1
+            else:
+                lst[k] = right_half[j]
+                j += 1
+            k += 1
 
-    while i < len(l1):
-      l[k] = l1[i]
-      i += 1
-      k += 1
+        while i < len(left_half):
+            lst[k] = left_half[i]
+            i += 1
+            k += 1
 
-    while j < len(l2):
-      l[k] = l2[j]
-      j += 1
-      k += 1
+        while j < len(right_half):
+            lst[k] = right_half[j]
+            j += 1
+            k += 1
 
-
-mergesort(lst)
-print(lst)
+if __name__ == "__main__":
+    lst = [5, 5, 2, 4, 1, 6]
+    print("Original List:", lst)
+    mergesort(lst)
+    print("Sorted List:", lst)

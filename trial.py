@@ -5,7 +5,6 @@ Module for implementing the Merge Sort algorithm.
 def mergesort(array):
     """
     Sorts a list in ascending order using the merge sort algorithm.
-    
     Args:
         array (list): The list to be sorted.
     """
@@ -43,7 +42,6 @@ if __name__ == "__main__":
     # Define the list to be sorted
     input_list = [5, 5, 2, 4, 1, 6]
     print("Original List:", input_list)
-    
     # Call the mergesort function
     mergesort(input_list)
     print("Sorted List:", input_list)

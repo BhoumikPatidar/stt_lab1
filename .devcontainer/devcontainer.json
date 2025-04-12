@@ -1,0 +1,15 @@
+{
+    "name": "Dynamic‑Tuner Dev",
+    "image": "mcr.microsoft.com/vscode/devcontainers/universal:2.0.9-linux",
+    "features": {
+      "ghcr.io/devcontainers/features/python:1": {},
+      "ghcr.io/devcontainers/features/cpp:1": {}
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": ["ms-vscode.cpptools", "ms-python.python"]
+      }
+    },
+    "postCreateCommand": "bash .devcontainer/setup.sh"
+  }
+  
